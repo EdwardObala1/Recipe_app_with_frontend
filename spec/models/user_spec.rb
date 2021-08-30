@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   let!(:recipe){create(:recipe, user: user) }
   let!(:comment){create(:comment, user: user, recipe: recipe) }
   it { should have_many(:recipes) }
-  it { should have_many(:comments) }
+  it { should have_many(:comments).through(:recipes) }
 
   it 'User had many recommendations' 
 
