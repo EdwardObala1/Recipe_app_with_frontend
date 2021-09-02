@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
 
   # recipe list
   def index
-    render :json => {}
+    @recipe = Recipe.all
+    render :index, recipe: @recipe
   end
 
   # show each item on its own page
@@ -11,10 +12,14 @@ class RecipesController < ApplicationController
   end
 
   def create
+    # require 'pry'
+    # binding.pry
     @new_recipe = Recipe.create!(recipe_params)
     if @new_recipe
-      # puts @new_recipe.title
+      redirect_to recipes_path, success: 'Recipe posted successfully'
     end
+    puts 'Hi eddy'
+    puts params[:recipe][:user_id]
   end
 
   def open_recipe
@@ -39,7 +44,7 @@ class RecipesController < ApplicationController
   
 
   def recipe_params
-    params.require(:recipe).permit(:id, :title, :body, :ingredients, :user_id, :recommendations)
+    params.permit(:title, :body, :ingredients, :user_id, :recommendations)
   end
 
 end

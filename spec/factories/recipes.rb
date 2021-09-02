@@ -1,3 +1,4 @@
+
 FactoryBot.define do
   factory :recipe do
     sequence(:title) { |n| "Title #{n}" }
@@ -7,6 +8,6 @@ FactoryBot.define do
       Another important tip to stir-fry is to have your meat at close to room temperature before cooking. This means leaving the chicken out to un-chill for about 15 minutes on the counter, which is the perfect amount of time for a short marinade." }
     ingredients { "MyString" }
     recommendations {0}
-    user 
+    user
   end
 end

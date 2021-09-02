@@ -1,0 +1,10 @@
+<div>
+  <%= form_with url: "/signin", method: :post do |form| %>
+    <%= form.label :email, "Put in your email:" %>
+    <%= form.email_field :email %>
+    <%= form.label :password, "Put in your password:" %>
+    <%= form.password_field :password %>
+    <%= form.submit "Sign in" %>
+  <% end %>
+  
+</div>

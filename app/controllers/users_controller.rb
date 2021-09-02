@@ -3,16 +3,16 @@ class UsersController < ApplicationController
   
     def index
       @user = User.all
-      render json: @user.to_json
+      render :index, user: @user 
     end
   
     def create
       user_exists = User.exists?(email: params[:email])  
       if user_exists
-      #   notice 'Email in use if these are your details sign in or create a new account'
+        redirect_to signin_path, success: 'Successfully created an account'
       else
         @user = User.create(user_params)
-        redirect_to signin_path
+        redirect_to signup_path, notice: 'Creating account failed'
       end
     end
   
