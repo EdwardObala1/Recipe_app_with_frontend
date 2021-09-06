@@ -1,17 +1,25 @@
 
 
-<div>
+<div class = 'row' >
   <%= form_with model: Comment, url: '/comment', method: :post do |form| %>
+    <div>
     <%= form.label :comment, "Put in your comment here:" %>
+    <div>
     <%= form.text_field :comment %>
+    </div>
+    </div>
 
-    <%= form.label :comment, "comment_user_id:" %>
-    <%= form.text_field :user_id %>
+    <div>
+    <%= form.hidden_field :user_id, :value => session[:user_id] %>
+    </div>
 
-    <%= form.label :comment, "comment_recipe_id:" %>
-    <%= form.text_field :recipe_id %>
+    <div>
+    <%= form.hidden_field :recipe_id, :value => @recipe.id %>
+    </iv>
 
+    <div>
     <%= form.submit "Add comment" %>
+    </div>
   <% end %> 
 </div>
 

@@ -16,8 +16,6 @@ describe "Add Comment", type: :feature do
     visit show_recipe_path(recipe.id)
     within("form") do
       fill_in 'comment', with: 'This food is trash'
-      fill_in 'comment_user_id', with: comment.user_id
-      fill_in 'comment_recipe_id', with: comment.recipe_id
       
     end
       click_button 'Add comment'

@@ -1,20 +1,32 @@
-<div>
-<h3>Title</h3></br>
-<%= @recipe.title %>
+<div class = 'container-fluid'>
+    <div class = 'row' >
+            <div>
+            <h3><u><%= @recipe.title %></u></h3>
+            </div>
+    </div></br>
+
+    <div class = 'row' >
+        <h4>Ingredients</h4></br>
+            <div>
+            <%= @recipe.body %>
+            </div>
+    </div></br>
+
+    <div class = 'row' >
+        <h4>Recipe procedure</h4></br>
+            <div>
+            <ul>
+            <% ingredients = @recipe.ingredients.split(" ") %>
+            <% ingredients.each do |ingredient| %>
+                <li><%= ingredient %> </li>
+            <% end %>
+            </ul>
+            </div>
+    </div></br>
+    </br>
+    </br>
+
+    <div class = 'row' >
+        <%= render 'comments/comment' %>
+    </div>
 </div>
-
-<div>
-<h3>ingredients</h3></br>
-<%= @recipe.body %>
-</div>
-
-<div>
-<h3>Recipe procedure</h3></br>
-<%= @recipe.ingredients %>
-</div>
-</br>
-</br>
-
-<%= render 'comments/comment' %>
-
-

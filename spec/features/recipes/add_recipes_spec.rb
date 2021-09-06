@@ -18,8 +18,7 @@ describe "Recipe test", type: :feature do
       fill_in 'title', with: recipe.title
       fill_in 'body', with: recipe.body
       fill_in 'ingredients', with: recipe.ingredients
-      fill_in 'user_id', with: recipe.user_id
-      # find_field(id: 'user_id', type: :hidden).set(user.id)
+      
     end
       click_button 'Add recipe'
       expect(page.current_path).to eq recipes_path

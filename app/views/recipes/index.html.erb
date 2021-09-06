@@ -1,8 +1,25 @@
-<% if @recipes.count == 0 %>
-  <div> <h4>Seems there are no recipes to show :-) </h4> </div>
-<% else %>
-  <% @recipes.each do |recipe|%>
-      <%= recipe.title %>
-      <%= recipe.body %>
-  <% end %>
-<% end %>
+
+<div class = 'row' style = "border:solid; width:60%; height:500px; margin:auto;">
+  <div class = 'row' style = 'width:80%; height:25%; border:solid; margin:auto; margin-top:20px;'>
+    <% if @recipes.count == 0 %>
+      <div> <h4>Seems there are no recipes to show :-) </h4> </div>
+    <% else %>
+      <div class = 'col' style = padding:auto;>
+        <% @recipes.each do |recipe|%>
+          <div class = 'row' >
+            <h4><a href = '/recipes/<%=recipe.id %>' style = 'text-decoration:none; color:black;'><%= recipe.title %></a></h4>
+          </div>
+
+          <div class = 'row'>
+            <p><%= recipe.recommendations %> recommendations</p>
+          </div>
+
+          <div class = 'row'>
+            <p><button><i class="glyphicon glyphicon-thumbs-up" style="font-size:20px"></i> Recommend</button></p>
+          </div>
+          
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

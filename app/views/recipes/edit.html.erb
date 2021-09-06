@@ -6,8 +6,9 @@
     <%= form.text_field :body %>
     <%= form.label :ingredients, "Put in your recipe ingredients:" %>
     <%= form.text_field :ingredients %>
-    <%= form.label :user_id, "user_id:" %>
-    <%= form.text_field :user_id %>
+    
+
+    <%= form.hidden_field :user_id, :value => session[:user_id] %>
     
     <%= form.submit "Edit recipe" %>
   <% end %> 

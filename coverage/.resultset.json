@@ -20,8 +20,6 @@
         1,
         1,
         1,
-        1,
-        1,
         null,
         null,
         1,
@@ -719,7 +717,6 @@
         null,
         1,
         1,
-        1,
         null,
         null,
         1,
@@ -742,6 +739,9 @@
         null,
         1,
         1,
+        1,
+        null,
+        null,
         1,
         null
       ],
@@ -779,7 +779,7 @@
       "/Users/edward/Desktop/Software Engineering aspects/Rails_projects/recipe_app_api/recipe_app_with_frontend/app/helpers/application_helper.rb": [
         1,
         1,
-        10,
+        35,
         null,
         null
       ],
@@ -821,7 +821,6 @@
         null,
         1,
         null,
-        1,
         1,
         1,
         1,
@@ -1412,6 +1411,6 @@
         null
       ]
     },
-    "timestamp": 1630915664
+    "timestamp": 1630957631
   }
 }
