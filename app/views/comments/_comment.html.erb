@@ -1,0 +1,17 @@
+
+
+<div>
+  <%= form_with model: Comment, url: '/comment', method: :post do |form| %>
+    <%= form.label :comment, "Put in your comment here:" %>
+    <%= form.text_field :comment %>
+
+    <%= form.label :comment, "comment_user_id:" %>
+    <%= form.text_field :user_id %>
+
+    <%= form.label :comment, "comment_recipe_id:" %>
+    <%= form.text_field :recipe_id %>
+
+    <%= form.submit "Add comment" %>
+  <% end %> 
+</div>
+

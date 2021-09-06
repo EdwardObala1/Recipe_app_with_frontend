@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get "signup", to: "users#index"
-  root "users#index"
   post 'signup', to: "users#create"
 
   # sessions
@@ -15,16 +14,21 @@ Rails.application.routes.draw do
 
   # recipes
   get '/recipes' ,to: 'recipes#index'
-  get '/recipes/:id', to: 'recipes#show'
+  get '/recipes/:id', to: 'recipes#show', as: 'show_recipe'
+  get '/recipes_add', to: 'recipes#new'
+  get '/recipes/:id/edit', to: 'recipes#edit', as: 'edit_recipe'
   post '/recipes', to: 'recipes#create'
   # should be in the front end
-  patch '/recipes/:id',to: 'recipes#update', as: 'recipes_edit'
+  patch '/recipes/:id/edit',to: 'recipes#update', as: 'recipe_edited'
   delete '/recipes/:id',to: 'recipes#destroy', as: 'recipes_delete'
   patch '/recipes/:id/recommend', to: 'recipes#recommend', as: 'recommend'
 
 
   # comments
-  post "post_comment", to: 'comments#add'
-  post "delete_comment", to: 'comments#delete'
+  post "comment", to: 'comments#create'
+  delete "comment", to: 'comments#destroy'
   get 'display_comments', to: 'comments#display'
+
+  # root page
+  root 'recipes#index'
 end

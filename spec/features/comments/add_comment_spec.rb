@@ -1,27 +1,26 @@
 require 'rails_helper'
 
-describe "Recipe test", type: :feature do
+describe "Add Comment", type: :feature do
   let!(:user){create(:user)}
   let(:recipe){create(:recipe, user: user)}
   let!(:comment){create(:comment, recipe: recipe, user: user)}
 
-  it "Adds recipe" do
+  it "Add Commment" do
     visit signin_path
     within("form") do
       fill_in 'email', with: user.email
       fill_in 'password', with: user.password
     end
     click_button 'Sign in'
-
-    visit recipes_add_path
+    
+    visit show_recipe_path(recipe.id)
     within("form") do
-      fill_in 'title', with: recipe.title
-      fill_in 'body', with: recipe.body
-      fill_in 'ingredients', with: recipe.ingredients
-      fill_in 'user_id', with: recipe.user_id
-      # find_field(id: 'user_id', type: :hidden).set(user.id)
+      fill_in 'comment', with: 'This food is trash'
+      fill_in 'comment_user_id', with: comment.user_id
+      fill_in 'comment_recipe_id', with: comment.recipe_id
+      
     end
-      click_button 'Add recipe'
+      click_button 'Add comment'
       expect(page.current_path).to eq recipes_path
   end
 

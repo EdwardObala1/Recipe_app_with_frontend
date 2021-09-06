@@ -1,13 +1,14 @@
 <div>
-  <%= form_with url: "/recipes", method: :post do |form| %>
+  <%= form_with(model: Recipe) do |form| %>
     <%= form.label :title, "Put in your recipe title:" %>
     <%= form.text_field :title %>
     <%= form.label :body, 'Put in the recipe body here' %>
     <%= form.text_field :body %>
     <%= form.label :ingredients, "Put in your recipe ingredients:" %>
     <%= form.text_field :ingredients %>
+    <%= form.label :user_id, "user_id:" %>
+    <%= form.text_field :user_id %>
     
-    <input id = 'user_id' ></input>
     <%= form.submit "Add recipe" %>
   <% end %> 
 </div>

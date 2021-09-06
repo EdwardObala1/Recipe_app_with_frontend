@@ -1,3 +1,8 @@
-Hi eddy
-
-<%= render 'create' %>
+<% if @recipes.count == 0 %>
+  <div> <h4>Seems there are no recipes to show :-) </h4> </div>
+<% else %>
+  <% @recipes.each do |recipe|%>
+      <%= recipe.title %>
+      <%= recipe.body %>
+  <% end %>
+<% end %>

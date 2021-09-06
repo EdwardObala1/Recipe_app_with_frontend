@@ -7,12 +7,14 @@ RSpec.describe "Comments", type: :request do
 
   it 'adds a comment' do
     expect do 
-      post post_comment_path, :params => {comment: {user_id:comment.user.id, recipe_id: comment.recipe.id, comment: comment.comment}}
+      post signin_path, :params => {email: user.email, password: user.password}
+      post comment_path, :params => {comment: {user_id:comment.user.id, recipe_id: comment.recipe.id, comment: comment.comment}}
     end.to change {Comment.count}.by(1)
   end
 
   it 'delete a comment' do
-    post delete_comment_path, :params => {comment: {id: comment.id}}
+    post signin_path, :params => {email: user.email, password: user.password}
+    delete comment_path, :params => {comment: {id: comment.id}}
     expect(Comment.exists?(id: comment.id)) .to eq(false)
   end
 end

@@ -8,8 +8,6 @@ RSpec.describe User, type: :model do
   it { should have_many(:recipes) }
   it { should have_many(:comments).through(:recipes) }
 
-  it 'User had many recommendations' 
-
 
   describe 'test to see if email,name and password can not be saved if null' do
     it 'checks if null is name is valid' do
