@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     Comment.create!(comment_params)
-    redirect_to recipes_path
+    redirect_back(fallback_location: show_recipe_path(:id)) #url_for(:controller => :recipes, :action => :show)
   end
 
   def destroy

@@ -19,7 +19,7 @@ describe "Add Comment", type: :feature do
       
     end
       click_button 'Add comment'
-      expect(page.current_path).to eq recipes_path
+      expect(page.current_path).to eq show_recipe_path(recipe.id)
   end
 
 end

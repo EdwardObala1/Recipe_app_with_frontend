@@ -22,7 +22,10 @@ class RecipesController < ApplicationController
   # show each item on its own page
   def show
     @recipe = Recipe.find_by!(id: params[:id])
-    render :show, recipes: @recipe
+    @users = User.all 
+    @recipes_comments = Comment.where(recipe_id: @recipe.id)
+    @recipes_comments == nil ? @recipes_comments = 0 : false
+    render :show, recipes: @recipe, user: @users, recipes_comments: @recipes_comments
   end
 
   def edit

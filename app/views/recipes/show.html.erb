@@ -1,19 +1,12 @@
-<div class = 'container-fluid'>
+<div class = 'container' style = "border:solid; margin:auto; margin-top:50px;">
     <div class = 'row' >
-            <div>
+            <div class = 'row' style = 'position:relative; text-align:center;'>
             <h3><u><%= @recipe.title %></u></h3>
             </div>
     </div></br>
 
     <div class = 'row' >
-        <h4>Ingredients</h4></br>
-            <div>
-            <%= @recipe.body %>
-            </div>
-    </div></br>
-
-    <div class = 'row' >
-        <h4>Recipe procedure</h4></br>
+        <h4 style = 'position:relative; text-align:center;' >Ingredients</h4></br>
             <div>
             <ul>
             <% ingredients = @recipe.ingredients.split(" ") %>
@@ -23,8 +16,35 @@
             </ul>
             </div>
     </div></br>
+
+    <div class = 'row' >
+        <h4 style = 'position:relative; text-align:center;' > How to prepare it </h4></br>
+            <div>
+            <%= @recipe.body %>
+            </div>
+    </div></br>
+
     </br>
     </br>
+    
+    <div class = 'row' style = 'justify-content:center; margin:auto; margin-bottom:20px;'>
+      <button style = 'width:130px;'><a href = "<%= @recipe.id %>/edit" style = 'outline:none;'>Edit Recipe</a></button>
+    </div>
+
+    <div class = 'overflow-auto' style = "height:300px;">
+      <% if @recipes_comments != 0 %>
+        <% @recipes_comments.each do |comment| %>
+            <div class = 'row' >
+                <h7><%= @users.find_by(id: comment.user_id).name %></h7>
+              <div class = 'row'>
+                <p><%= comment.comment %></p>
+              </div>
+            </div>
+        <% end %>
+      <% else %>
+          <div>There are no comments on this recipe</div>
+      <% end %>
+    </div>
 
     <div class = 'row' >
         <%= render 'comments/comment' %>

@@ -1,0 +1,9 @@
+<div>
+  <%= form_with url: "/logout", method: :post do |form| %>
+
+    <%= form.label :password, "Are you sure you want to logout:" %></br>
+    <%= form.submit "Logout" %>
+  <% end %>
+  <a href = "/recipes"><button>Back</button></a>
+  
+</div>

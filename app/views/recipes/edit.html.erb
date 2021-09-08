@@ -1,17 +1,24 @@
 <div>
   <%= form_with model: Recipe, url: 'edit', method: :patch do |form| %>
-    <%= form.label :title, "Put in your recipe title:" %>
-    <%= form.text_field :title %>
-    <%= form.label :body, 'Put in the recipe body here' %>
-    <%= form.text_field :body %>
-    <%= form.label :ingredients, "Put in your recipe ingredients:" %>
-    <%= form.text_field :ingredients %>
-    
+    <div class = 'row' style = 'margin:auto; margin-bottom:20px;' >
+    <%= form.label :title, "Put in your recipe title:" %></br>
+    <%= form.text_field :title, style: 'width:300px;' %>
+    </div>
+
+    <div class = 'row' style = 'margin:auto; margin-bottom:20px;' >
+    <%= form.label :body, 'Put in the recipe body here' %></br>
+    <%= form.text_field :body, style: 'width:300px;'  %>
+    </div>
+
+    <div class = 'row' style = 'margin:auto; margin-bottom:20px;'>
+    <%= form.label :ingredients, "Put in your recipe ingredients:" %></br>
+    <%= form.text_field :ingredients, style: 'width:300px;'  %>
+    </div>
 
     <%= form.hidden_field :user_id, :value => session[:user_id] %>
     
-    <%= form.submit "Edit recipe" %>
+    <div class = 'row' style = 'margin:auto; margin-bottom:20px;'>
+    <%= form.submit "Edit recipe", style: 'width:100px; margin-left:10px;'  %>
+    </div>
   <% end %> 
 </div>
-
-YOu loser
