@@ -9,7 +9,7 @@
         <h4 style = 'position:relative; text-align:center;' >Ingredients</h4></br>
             <div>
             <ul>
-            <% ingredients = @recipe.ingredients.split(" ") %>
+            <% ingredients = @recipe.ingredients.split(",") %>
             <% ingredients.each do |ingredient| %>
                 <li><%= ingredient %> </li>
             <% end %>

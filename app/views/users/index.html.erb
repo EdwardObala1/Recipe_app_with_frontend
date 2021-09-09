@@ -1,4 +1,7 @@
-<div>
+
+<div class = 'row' style = "border:solid; width:60%; height:500px; margin:auto;">
+
+
   <%= form_with url: "/signup", method: :post do |form| %>
     <%= form.label :name, "Put in your name:" %>
     <%= form.email_field :name %>
@@ -9,4 +12,5 @@
     <%= form.submit "Sign up" %>
   <% end %>
   
+</div>
 </div>

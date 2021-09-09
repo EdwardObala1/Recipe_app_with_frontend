@@ -29,6 +29,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find_by!(id: params[:id])
   end
 
   def create
@@ -46,7 +47,7 @@ class RecipesController < ApplicationController
   def update
     recipe = Recipe.find_by!(id: params[:id])
     recipe.update(recipe_params.except(:id))
-    redirect_to recipes_path
+    redirect_to show_recipe_path(recipe.id)
   end
 
   def destroy
