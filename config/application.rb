@@ -34,5 +34,10 @@ module RecipeAppWithFrontend
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # config/application.rb
+    console do
+      ActiveRecord::Base.connection
+    end
   end
 end

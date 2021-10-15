@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/recipes_add', to: 'recipes#new'
   get '/recipes/:id/edit', to: 'recipes#edit', as: 'edit_recipe'
   post '/recipes', to: 'recipes#create'
+  
   # should be in the front end
   patch '/recipes/:id/edit',to: 'recipes#update', as: 'recipe_edited'
   delete '/recipes/:id',to: 'recipes#destroy', as: 'recipes_delete'

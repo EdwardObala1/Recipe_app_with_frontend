@@ -12,7 +12,7 @@ RSpec.describe "/recipes", type: :request do
     end
 
     it "opens recipe page with specific ID" do
-      get recipes_path(:id), :params => {id: recipe.id}
+      get show_recipe_path(recipe.id)
       expect(response.status).to eq(200)
     end
 
@@ -49,6 +49,18 @@ RSpec.describe "/recipes", type: :request do
         post signin_path, :params => {name: user.name, email: user.email, password: user.password}
         patch recommend_path(recipe.id)
       end.to change {Recipe.find_by!(id: recipe.id).recommendations}.by(1)
+    end
+  end
+
+  describe '/recipes' do
+    it 'returns a list of all the Recipes' do
+      get recipes_path, :headers => {Accept: 'application/json'}
+      expect(JSON.parse(response.body)).to_not eq(nil)
+    end
+
+    it 'returns a list of one recipe' do
+      get show_recipe_path(recipe.id), :headers => {Accept: 'application/json'}
+      expect(JSON.parse(response.body)).to_not eq(nil)
     end
   end
 end

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_184651) do
     t.string "title"
     t.text "body"
     t.string "ingredients"
-    t.integer "recommendations"
+    t.integer "recommendations", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

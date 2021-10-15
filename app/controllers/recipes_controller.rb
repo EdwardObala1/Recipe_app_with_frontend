@@ -16,7 +16,10 @@ class RecipesController < ApplicationController
   # recipe list
   def index
     @recipes = Recipe.all
-    render :index, recipes: @recipes
+    respond_to do |format|
+      format.html {render :index, recipes: @recipes}
+      format.json {render :json => @recipes }
+    end
   end
 
   # show each item on its own page
@@ -25,7 +28,10 @@ class RecipesController < ApplicationController
     @users = User.all 
     @recipes_comments = Comment.where(recipe_id: @recipe.id)
     @recipes_comments == nil ? @recipes_comments = 0 : false
-    render :show, recipes: @recipe, user: @users, recipes_comments: @recipes_comments
+    respond_to do |format|
+      format.html {render :show, recipes: @recipe, user: @users, recipes_comments: @recipes_comments}
+      format.json {render :json => @recipe}
+    end
   end
 
   def edit
